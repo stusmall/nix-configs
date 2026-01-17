@@ -40,11 +40,14 @@ let
             installation_mode = "force_installed";
           };
         };
-
         FirefoxSuggest = {
           WebSuggestions = false;
           SponsoredSuggestions = false;
           ImproveSuggest = false;
+          Locked = true;
+        };
+        GenerativeAI = {
+          Enabled = false;
           Locked = true;
         };
         PasswordManagerEnabled = false;
