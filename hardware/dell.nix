@@ -9,8 +9,8 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ./base.nix
-    ./modules/fwupd.nix
-    ./modules/steam.nix
+    ../nixos-modules/fwupd.nix
+    ../nixos-modules/steam.nix
   ];
 
   boot.initrd.availableKernelModules = [
