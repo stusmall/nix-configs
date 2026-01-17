@@ -3,16 +3,16 @@
 {
   imports = [
     <home-manager/nixos>
-    ./modules/encrypted-dns.nix
-    ./modules/firefox.nix
-    ./modules/gnome.nix
-    ./modules/opensnitch.nix
-    ./modules/rust.nix
-    ./modules/signal.nix
-    ./modules/tailscale.nix
-    ./modules/watchmate.nix
-    ./modules/wireshark.nix
-    ./modules/zed.nix
+    ../nixos-modules/encrypted-dns.nix
+    ../nixos-modules/firefox.nix
+    ../nixos-modules/gnome.nix
+    ../nixos-modules/opensnitch.nix
+    ../nixos-modules/rust.nix
+    ../nixos-modules/signal.nix
+    ../nixos-modules/tailscale.nix
+    ../nixos-modules/watchmate.nix
+    ../nixos-modules/wireshark.nix
+    ../nixos-modules/zed.nix
   ];
 
   # Set a limit on the number of generations to include in boot
@@ -74,7 +74,7 @@
   };
 
   # Make nixos-rebuild invoke home-manager
-  home-manager.users.stusmall = import ./home.nix;
+  home-manager.users.stusmall = import ../home-modules/base.nix;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

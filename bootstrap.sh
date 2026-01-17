@@ -14,14 +14,14 @@ select MACHINE in "${MACHINES[@]}"; do
       echo "Setting configuration.nix symlink"
       sudo rm -f /etc/nixos/configuration.nix || true
       sudo rm -f /etc/nixos/hardware-configuration.nix || true
-      sudo ln -s "$REPO_ROOT"/desktop.nix /etc/nixos/configuration.nix
+      sudo ln -s "$REPO_ROOT"/hardware/desktop.nix /etc/nixos/configuration.nix
       break
       ;;
     "Dell")
       echo "Setting configuration.nix symlink"
       sudo rm -f /etc/nixos/configuration.nix || true
       sudo rm -f /etc/nixos/hardware-configuration.nix || true
-      sudo ln -s "$REPO_ROOT"/dell.nix /etc/nixos/configuration.nix
+      sudo ln -s "$REPO_ROOT"/hardware/dell.nix /etc/nixos/configuration.nix
       break
       ;;
     "New System")
