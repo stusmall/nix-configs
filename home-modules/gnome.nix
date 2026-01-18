@@ -1,5 +1,5 @@
-{ lib, ... }:
-{
+{ lib, pkgs, ... }:
+(lib.mkIf (pkgs.stdenv.isLinux) {
   dconf.settings = {
     "org/gnome/calculator" = {
       # Disable currency conversion refresh
@@ -57,4 +57,4 @@
     "x-scheme-handler/http" = "firefox.desktop";
     "x-scheme-handler/https" = "firefox.desktop";
   };
-}
+})
