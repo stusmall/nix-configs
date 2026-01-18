@@ -10,31 +10,30 @@
     ./zed.nix
     ./zellij.nix
   ];
-  home.username = "stusmall";
-  home.homeDirectory = "/home/stusmall";
-
-  home.stateVersion = "22.11";
 
   nixpkgs.config.allowUnfree = true;
+  home.packages =
+    with pkgs;
+    [
+      dig
+      helix
+      ripgrep
+      nixfmt-rfc-style
+      nmap
+      tokei
+      tree
+      trivy
+    ]
+    ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
+      chromium
+      evince
+      openssl
+      pciutils
+      meld
+      usbutils
+      whois
+      vlc
+    ];
 
-  home.packages = with pkgs; [
-    chromium
-    dig
-    evince
-    gnupg
-    helix
-    htop
-    openssl
-    pciutils
-    ripgrep
-    meld
-    nixfmt-rfc-style
-    nmap
-    tokei
-    tree
-    trivy
-    usbutils
-    whois
-    vlc
-  ];
+  home.stateVersion = "25.11";
 }

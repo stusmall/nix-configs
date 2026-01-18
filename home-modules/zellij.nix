@@ -1,5 +1,9 @@
-{ ... }:
+{ pkgs, lib, ... }:
 {
+  home.packages = with pkgs; [
+    zellij
+  ];
+
   programs.zellij = {
     enable = true;
     settings = {
@@ -9,6 +13,9 @@
           hide_session_name = true;
         };
       };
-    };
+    }
+    // (lib.attrsets.optionalAttrs pkgs.stdenv.isDarwin {
+      copy_command = "pbcopy";
+    });
   };
 }
