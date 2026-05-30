@@ -18,7 +18,7 @@
       dig
       helix
       ripgrep
-      nixfmt-rfc-style
+      nixfmt
       nmap
       tokei
       tree

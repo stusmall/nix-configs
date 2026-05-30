@@ -10,7 +10,8 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     ./base.nix
     ../nixos-modules/fwupd.nix
-    ../nixos-modules/steam.nix
+    # ../nixos-modules/local-k8s.nix
+    #    ../nixos-modules/steam.nix
   ];
 
   boot.initrd.availableKernelModules = [
@@ -85,4 +86,30 @@
 
   # Enable options in Gnome shell to launch an app on the discrete graphics card
   services.switcherooControl.enable = true;
+
+  # I've had trouble getting the exact path for the curl bin, so I'm just gonna scope on the domain
+  services.opensnitch.rules.rule-500-nvidia = {
+    name = "Allow Nix to fetch the closed source nvidia driver source";
+    enabled = true;
+    action = "allow";
+    duration = "always";
+    operator = {
+      type = "list";
+      operand = "list";
+      list = [
+        {
+          type = "regexp";
+          sensitive = false;
+          operand = "process.path";
+          data = "curl$";
+        }
+        {
+          type = "simple";
+          operand = "dest.host";
+          sensitive = false;
+          data = "us.download.nvidia.com";
+        }
+      ];
+    };
+  };
 }

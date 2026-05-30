@@ -4,6 +4,8 @@
     pkgs.zed-editor
     # Zed uses for displaying exact versions in a package.json
     pkgs.package-version-server
+    # Used to format SQL
+    pkgs.sql-formatter
   ];
   # Zed configuration is set up in home.nix
   services.opensnitch.rules = {
@@ -124,6 +126,30 @@
             operand = "dest.host";
             sensitive = false;
             data = "zed-extensions.nyc3.digitaloceanspaces.com";
+          }
+        ];
+      };
+    };
+    rule-500-zed-acp = {
+      name = "Allow zed to get ACP registry updates";
+      enabled = true;
+      action = "allow";
+      duration = "always";
+      operator = {
+        type = "list";
+        operand = "list";
+        list = [
+          {
+            type = "simple";
+            sensitive = false;
+            operand = "process.path";
+            data = "${pkgs.zed-editor}/libexec/.zed-editor-wrapped";
+          }
+          {
+            type = "simple";
+            operand = "dest.host";
+            sensitive = false;
+            data = "cdn.agentclientprotocol.com";
           }
         ];
       };

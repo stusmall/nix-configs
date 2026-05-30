@@ -6,9 +6,41 @@
     extensions = [
       "make"
       "nix"
+      "sql"
       "toml"
     ];
     userSettings = {
+      "agent" = {
+        "default_profile" = "ask";
+        "default_model" = {
+          "provider" = "localmodel";
+          "model" = "ggml-org/gpt-oss-20b-GGUF";
+        };
+        "tool_permissions" = {
+          "default" = "confirm";
+          "tools" = {
+            "search_web" = {
+              "default" = "allow";
+            };
+            "fetch" = {
+              "default" = "allow";
+            };
+            "edit_file" = {
+              "default" = "confirm";
+              "always_allow" = [
+                { "pattern" = "\.rs$"; }
+              ];
+            };
+            "terminal" = {
+              "default" = "confirm";
+              "always_allow" = [
+                { "pattern" = "^cargo\\s+(build|test|check)"; }
+                { "pattern" = "^npm\\s+(install|test|run)"; }
+              ];
+            };
+          };
+        };
+      };
       "buffer_font_features" = {
         # Disable font ligatures
         "calt" = false;
@@ -24,6 +56,27 @@
             "nil"
             "!nixd"
           ];
+        };
+      };
+      "language_models" = {
+        "openai_compatible" = {
+          "localmodel" = {
+            "api_url" = "http://localhost:8080/v1";
+            "available_models" = [
+              {
+                "name" = "ggml-org/gpt-oss-20b-GGUF";
+                "max_tokens" = 200000;
+                # "max_output_tokens": 32000,
+                # "max_completion_tokens": 200000,
+                "capabilities" = {
+                  "tools" = true;
+                  "images" = false;
+                  "parallel_tool_calls" = false;
+                  "prompt_cache_key" = false;
+                };
+              }
+            ];
+          };
         };
       };
       "load_direnv" = "shell_hook";

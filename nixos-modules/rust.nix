@@ -2,7 +2,6 @@
 {
   environment.systemPackages = with pkgs; [
     clang
-    rustup
   ];
 
   services.opensnitch.rules = {
