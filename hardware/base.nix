@@ -9,7 +9,6 @@
     ../nixos-modules/opensnitch.nix
     ../nixos-modules/rust.nix
     ../nixos-modules/signal.nix
-    ../nixos-modules/tailscale.nix
     ../nixos-modules/watchmate.nix
     ../nixos-modules/wireshark.nix
     ../nixos-modules/zed.nix
@@ -38,9 +37,6 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {

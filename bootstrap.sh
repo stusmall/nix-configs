@@ -3,8 +3,8 @@ set -euo pipefail
 
 function set_nixos_channels() {
     echo "Setting up NixOS channels"
-    sudo nix-channel --add https://nixos.org/channels/nixos-25.11 nixos
-    sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz home-manager
+    sudo nix-channel --add https://nixos.org/channels/nixos-26.05 nixos
+    sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz home-manager
     sudo nix-channel --update
     echo "Rebuilding NixOS"
     sudo nixos-rebuild build

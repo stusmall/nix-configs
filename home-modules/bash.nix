@@ -3,8 +3,7 @@
   programs.bash = {
     enable = true;
     bashrcExtra = ''
-      # Always open terminal in zellij session
-      if [ "$TERM_PROGRAM" != "zed" ]; then
+      if [ "$TERM" = "alacritty" ]; then
         eval "$(zellij setup --generate-auto-start bash)"
       fi
       # Needed to use yubkiey for SSH key
