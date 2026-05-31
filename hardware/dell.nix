@@ -11,7 +11,7 @@
     ./base.nix
     ../nixos-modules/fwupd.nix
     # ../nixos-modules/local-k8s.nix
-    #    ../nixos-modules/steam.nix
+    ../nixos-modules/steam.nix
   ];
 
   boot.initrd.availableKernelModules = [
@@ -83,9 +83,6 @@
       nvidiaBusId = "PCI:1:0:0";
     };
   };
-
-  # Enable options in Gnome shell to launch an app on the discrete graphics card
-  services.switcherooControl.enable = true;
 
   # I've had trouble getting the exact path for the curl bin, so I'm just gonna scope on the domain
   services.opensnitch.rules.rule-500-nvidia = {

@@ -5,7 +5,6 @@
     ./bash.nix
     ./direnv.nix
     ./git.nix
-    ./gnome.nix
     ./smartcard.nix
     ./zed.nix
     ./zellij.nix

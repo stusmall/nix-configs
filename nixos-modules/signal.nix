@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [ signal-desktop ];
 
@@ -13,10 +13,10 @@
         operand = "list";
         list = [
           {
-            type = "simple";
+            type = "regexp";
             sensitive = false;
             operand = "process.path";
-            data = "${lib.getBin pkgs.signal-desktop}/lib/signal-desktop/signal-desktop";
+            data = "^\\/nix\\/store\\/.*\\/libexec\\/electron\\/electron$";
           }
           {
             type = "regexp";
