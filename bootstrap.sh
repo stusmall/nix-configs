@@ -30,7 +30,7 @@ echo "Setting symlinks to point to $REPO_ROOT"
 
 
 echo "Which machine are we setting up?"
-MACHINES=("Desktop" "Dell" "MacBook" "Exit")
+MACHINES=("Desktop" "Dell" "ThinkPad" "MacBook" "Exit")
 select MACHINE in "${MACHINES[@]}"; do
   case $MACHINE in
     "Desktop")
@@ -46,6 +46,14 @@ select MACHINE in "${MACHINES[@]}"; do
       sudo rm -f /etc/nixos/configuration.nix || true
       sudo rm -f /etc/nixos/hardware-configuration.nix || true
       sudo ln -s "$REPO_ROOT"/hardware/dell.nix /etc/nixos/configuration.nix
+      set_nixos_channels
+      break
+      ;;
+     "ThinkPad")
+      echo "Setting configuration.nix symlink"
+      sudo rm -f /etc/nixos/configuration.nix || true
+      sudo rm -f /etc/nixos/hardware-configuration.nix || true
+      sudo ln -s "$REPO_ROOT"/hardware/thinkpad.nix /etc/nixos/configuration.nix
       set_nixos_channels
       break
       ;;
