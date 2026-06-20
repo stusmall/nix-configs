@@ -14,4 +14,9 @@
   ];
   services.gnome.gnome-keyring.enable = false;
   hardware.system76.power-daemon.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    cosmic-ext-calculator
+    cosmic-ext-tweaks
+  ];
 }

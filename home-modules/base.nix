@@ -29,6 +29,7 @@
       openssl
       pciutils
       meld
+      mission-center
       usbutils
       whois
       vlc

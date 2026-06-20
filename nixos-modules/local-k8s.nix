@@ -2,11 +2,12 @@
 {
   environment.systemPackages = with pkgs; [
     argocd
-    docker-machine-kvm2
+    cilium-cli
+    hubble
+    kubectl # just here for auto completes
     kubernetes-helm
     libvirt
     minikube
-    kubectl # just here for auto completes
   ];
 
   programs.bash.shellAliases = {
