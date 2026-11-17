@@ -107,6 +107,9 @@
     jq
   ];
 
+  # Allow the use of the steam controller
+  hardware.steam-hardware.enable = true;
+
   # This is needed for PIV operations on the yubikey
   services.pcscd.enable = true;
 

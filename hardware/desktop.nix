@@ -11,6 +11,7 @@
     ./base.nix
     ../nixos-modules/sshd.nix
     ../nixos-modules/steam.nix
+    ../nixos-modules/llama-cpp.nix
   ];
 
   boot.initrd.availableKernelModules = [
@@ -55,4 +56,9 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # Used to push GPU to low power mode by default.  Attempt to improve stability
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="drm", DRIVERS=="amdgpu", ATTR{device/power_dpm_force_performance_level}="low"
+  '';
 }

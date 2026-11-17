@@ -3,8 +3,8 @@ set -euo pipefail
 
 function set_nixos_channels() {
     echo "Setting up NixOS channels"
-    sudo nix-channel --add https://nixos.org/channels/nixos-26.05 nixos
-    sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz home-manager
+    sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+    sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
     sudo nix-channel --update
     echo "Rebuilding NixOS"
     sudo nixos-rebuild build
@@ -12,10 +12,6 @@ function set_nixos_channels() {
 
 function set_nix_darwin_channels() {
     echo "Setting up nix-darwin channels"
-    # Currently Zed is broken on stable darwin.  Switching to unstable for now
-    # sudo nix-channel --add https://github.com/nix-darwin/nix-darwin/archive/nix-darwin-25.11.tar.gz darwin
-    # sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz home-manager
-    # sudo nix-channel --add https://channels.nixos.org/nixpkgs-25.11-darwin
     sudo nix-channel --add https://github.com/nix-darwin/nix-darwin/archive/master.tar.gz darwin
     sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
     sudo nix-channel --add https://channels.nixos.org/nixpkgs-unstable nixpkgs

@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31.11.1
         with:
-          nix_path: nixpkgs=channel:nixos-26.05:home-manager=https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz:cosmic-manager=https://github.com/HeitorAugustoLN/cosmic-manager/archive/main.tar.gz
+          nix_path: nixpkgs=channel:nixos-unstable:home-manager=https://github.com/nix-community/home-manager/archive/master.tar.gz:cosmic-manager=https://github.com/HeitorAugustoLN/cosmic-manager/archive/main.tar.gz
       - name: Check project formatting
         run: nix-shell -p nixfmt-tree --command "treefmt --ci"
       - name: Build Dell
@@ -30,6 +30,6 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31.11.1
         with:
-          nix_path: nixpkgs=channel:nixos-26.05:darwin=https://github.com/nix-darwin/nix-darwin/archive/nix-darwin-26.05.tar.gz:home-manager=https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz:cosmic-manager=https://github.com/HeitorAugustoLN/cosmic-manager/archive/main.tar.gz
+          nix_path: nixpkgs=channel:nixos-unstable:darwin=https://github.com/nix-darwin/nix-darwin/archive/master.tar.gz:home-manager=https://github.com/nix-community/home-manager/archive/master.tar.gz
       - name: Build MacBook
         run: nix-instantiate '<darwin>' -A system -I darwin-config=./hardware/macbook.nix

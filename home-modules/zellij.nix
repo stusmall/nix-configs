@@ -14,7 +14,7 @@
         };
       };
     }
-    // (lib.attrsets.optionalAttrs pkgs.stdenv.isDarwin {
+    // (lib.attrsets.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
       copy_command = "pbcopy";
     });
   };

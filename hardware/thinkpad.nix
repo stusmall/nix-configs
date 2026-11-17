@@ -81,4 +81,29 @@
     # accessible via `nvidia-settings`.
     nvidiaSettings = false;
   };
+
+  services.opensnitch.rules.rule-500-nvidia = {
+    name = "Allow Nix to fetch the open source nvidia driver source";
+    enabled = true;
+    action = "allow";
+    duration = "always";
+    operator = {
+      type = "list";
+      operand = "list";
+      list = [
+        {
+          type = "regexp";
+          sensitive = false;
+          operand = "process.path";
+          data = "curl$";
+        }
+        {
+          type = "simple";
+          operand = "dest.host";
+          sensitive = false;
+          data = "developer.download.nvidia.com";
+        }
+      ];
+    };
+  };
 }
