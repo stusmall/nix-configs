@@ -10,6 +10,7 @@
     enableSshSupport = true;
     defaultCacheTtl = 60;
     maxCacheTtl = 120;
-    pinentry.package = if pkgs.stdenv.isLinux then pkgs.pinentry-curses else pkgs.pinentry_mac;
+    pinentry.package =
+      if pkgs.stdenv.hostPlatform.isLinux then pkgs.pinentry-curses else pkgs.pinentry_mac;
   };
 }

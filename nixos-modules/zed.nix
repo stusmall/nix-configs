@@ -68,10 +68,10 @@
         operand = "list";
         list = [
           {
-            type = "simple";
+            type = "regexp";
             sensitive = false;
             operand = "process.path";
-            data = "${pkgs.nodejs}/bin/node";
+            data = "^/nix/store/.*/bin/node$";
           }
           {
             type = "regexp";

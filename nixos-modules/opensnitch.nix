@@ -82,10 +82,10 @@
           operand = "list";
           list = [
             {
-              type = "simple";
+              type = "regexp";
               sensitive = false;
               operand = "process.path";
-              data = "${lib.getBin pkgs.systemd}/lib/systemd/systemd-timesyncd";
+              data = "systemd-timesyncd$";
             }
             {
               type = "simple";

@@ -3,6 +3,7 @@
   imports = [
     ./alacritty.nix
     ./bash.nix
+    ./codex.nix
     ./direnv.nix
     ./git.nix
     ./smartcard.nix

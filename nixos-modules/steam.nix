@@ -1,10 +1,13 @@
 { pkgs, ... }:
 let
-  steamRegex = "^/home/stusmall/\\.local/share/Steam/ubuntu12_32/steam|/home/stusmall/\\.local/share/Steam/ubuntu12_64/steamwebhelper$";
+  steamRegex = "^\\/home\\/stusmall\\/\\.local\\/share\\/Steam\\/ubuntu12_32\\/steam|\\/home\\/stusmall\\/\\.local\\/share\\/Steam\\/ubuntu12_64\\/steamwebhelper$";
 
 in
 {
-  environment.systemPackages = with pkgs; [ steam ];
+  environment.systemPackages = with pkgs; [
+    openmw
+    steam
+  ];
 
   # We need 32bit versions of all the OpenGL etc libraries for steam to run
   hardware.graphics.enable32Bit = true;
@@ -87,7 +90,7 @@ in
             type = "regexp";
             operand = "dest.host";
             sensitive = false;
-            data = "^([a-z0-9|-]+\\.)*(steampowered\\.com|steamcommunity\\.com|steamserver\\.net|steamstatic\\.com|steamcontent\\.com)$";
+            data = "^([a-z0-9|-]+\\.)*(steampowered\\.com|steamcommunity\\.com|steamserver\\.net|steamstatic\\.com|steamcontent\\.com|steamstatic\\.com)$";
           }
         ];
       };
