@@ -5,6 +5,7 @@ function set_nixos_channels() {
     echo "Setting up NixOS channels"
     sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
     sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+    sudo nix-channel --add https://github.com/HeitorAugustoLN/cosmic-manager/archive/main.tar.gz cosmic-manager
     sudo nix-channel --update
     echo "Rebuilding NixOS"
     sudo nixos-rebuild build
