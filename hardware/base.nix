@@ -6,7 +6,6 @@
     ../nixos-modules/cosmic.nix
     ../nixos-modules/encrypted-dns.nix
     ../nixos-modules/firefox.nix
-    ../nixos-modules/opensnitch.nix
     ../nixos-modules/rust.nix
     ../nixos-modules/signal.nix
     ../nixos-modules/watchmate.nix

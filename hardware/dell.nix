@@ -10,6 +10,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     ./base.nix
     ../nixos-modules/fwupd.nix
+    ../nixos-modules/opensnitch.nix
     ../nixos-modules/steam.nix
   ];
 
